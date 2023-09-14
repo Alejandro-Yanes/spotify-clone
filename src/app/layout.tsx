@@ -1,9 +1,9 @@
 import "./globals.css";
 
 import { Figtree } from "next/font/google";
+import Layout from "@/components/layout/Layout";
 import type { Metadata } from "next";
 import ModalProvider from "@/providers/ModalProvider";
-import Sidebar from "@/components/Sidebar";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
 import UploadModal from "@/components/modals/UploadModal";
@@ -29,7 +29,7 @@ export default function RootLayout({
           <UserProvider>
             <ModalProvider />
             <UploadModal />
-            <Sidebar>{children}</Sidebar>
+            <Layout>{children}</Layout>
           </UserProvider>
         </SupabaseProvider>
       </body>
