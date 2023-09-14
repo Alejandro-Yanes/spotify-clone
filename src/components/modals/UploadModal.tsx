@@ -3,9 +3,10 @@
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import React, { useState } from "react";
 
-import Button from "../Button";
+import Button from "../Buttons/Button";
 import Input from "../Input";
 import Modal from "../Modal";
+import Spinner from "../Spinner";
 import { toast } from "react-hot-toast";
 import uniqid from "uniqid";
 import { useRouter } from "next/navigation";
@@ -150,7 +151,7 @@ const UploadModal: React.FunctionComponent<UploadModalProps> = (props) => {
             />
           </div>
           <Button disabled={isLoading} type="submit">
-            Create
+            {isLoading ? <Spinner /> : "Create"}
           </Button>
         </form>
       </Modal>
