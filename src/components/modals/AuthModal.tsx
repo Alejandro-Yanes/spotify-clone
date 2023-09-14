@@ -7,7 +7,7 @@ import {
 } from "@supabase/auth-helpers-react";
 
 import { Auth } from "@supabase/auth-ui-react";
-import Modal from "./Modal";
+import Modal from "../Modal";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useRouter } from "next/navigation";

@@ -22,7 +22,6 @@ export default function Home() {
         </div>
         <div>List of songs</div>
       </div>
-      Hello World
     </div>
   );
 }

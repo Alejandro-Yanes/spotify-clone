@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import AuthModal from "@/components/AuthModal";
+import AuthModal from "@/components/modals/AuthModal";
 import Modal from "@/components/Modal";
 
 export type ModalProviderProps = {};
