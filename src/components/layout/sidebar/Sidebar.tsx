@@ -7,11 +7,14 @@ import Box from "../../Box";
 import { HiHome } from "react-icons/hi";
 import Library from "../../Library";
 import SidebarItem from "./SidebarItem";
+import { Song } from "../../../../types";
 import { usePathname } from "next/navigation";
 
-export type SidebarProps = {};
+export type SidebarProps = {
+  songs: Song[];
+};
 
-const Sidebar: React.FunctionComponent<SidebarProps> = () => {
+const Sidebar: React.FunctionComponent<SidebarProps> = ({ songs }) => {
   const pathName = usePathname();
 
   const routes = useMemo(
@@ -40,7 +43,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
         ))}
       </Box>
       <Box className="overflow-y-auto h-full">
-        <Library />
+        <Library songs={songs} />
       </Box>
     </aside>
   );

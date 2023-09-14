@@ -3,7 +3,7 @@
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 
 import { BiSearch } from "react-icons/bi";
-import Button from "./Button";
+import Button from "./Buttons/Button";
 import { FaUserAlt } from "react-icons/fa";
 import { HiHome } from "react-icons/hi";
 import React from "react";
