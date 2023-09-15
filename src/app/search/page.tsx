@@ -28,3 +28,4 @@ const Search = async ({ searchParams }: SearchProps) => {
 };
 
 export default Search;
+

@@ -36,7 +36,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({ songs }) => {
   );
 
   return (
-    <aside className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
+    <aside className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] py-2 pl-2">
       <Box className="flex flex-col gap-y-4 px-5 py-4">
         {routes.map((route) => (
           <SidebarItem key={route.label} {...route} />
