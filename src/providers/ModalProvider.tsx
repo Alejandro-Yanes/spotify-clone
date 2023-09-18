@@ -12,7 +12,7 @@ const ModalProvider: React.FunctionComponent<ModalProviderProps> = (props) => {
 
   useEffect(() => {
     setIsMounted(true);
-  });
+  }, [setIsMounted]);
 
   if (!isMounted) {
     return null;

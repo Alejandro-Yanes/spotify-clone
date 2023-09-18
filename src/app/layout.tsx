@@ -4,6 +4,7 @@ import { Figtree } from "next/font/google";
 import Layout from "@/components/layout/Layout";
 import type { Metadata } from "next";
 import ModalProvider from "@/providers/ModalProvider";
+import Player from "@/components/player/Player";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
 import UploadModal from "@/components/modals/UploadModal";
@@ -34,6 +35,7 @@ export default async function RootLayout({
             <ModalProvider />
             <UploadModal />
             <Layout songs={userSongs}>{children}</Layout>
+            <Player />
           </UserProvider>
         </SupabaseProvider>
       </body>

@@ -1,5 +1,11 @@
 import { Subscription, UserDetails } from "../../types";
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import {
   useSessionContext,
   useUser as useSupaUser,
@@ -35,13 +41,17 @@ export const MyUserContextProvider = (props: Props) => {
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
   const [subscription, setSubscription] = useState<Subscription | null>(null);
 
-  const getUserDetails = () => supabase.from("users").select("*").single();
-  const getSubscription = () =>
-    supabase
+  const getUserDetails = useCallback(() => {
+    return supabase.from("users").select("*").single();
+  }, [supabase]);
+
+  const getSubscription = useCallback(() => {
+    return supabase
       .from("subscriptions")
       .select("*, prices(*, products(*))")
       .in("status", ["trialing", "active"])
       .single();
+  }, [supabase]);
 
   useEffect(() => {
     if (user && !isLoadingData && !userDetails && !subscription) {
@@ -67,7 +77,15 @@ export const MyUserContextProvider = (props: Props) => {
       setUserDetails(null);
       setSubscription(null);
     }
-  }, [user, isLoadingUser]);
+  }, [
+    user,
+    isLoadingUser,
+    getSubscription,
+    getUserDetails,
+    isLoadingData,
+    subscription,
+    userDetails,
+  ]);
 
   const value = {
     accessToken,

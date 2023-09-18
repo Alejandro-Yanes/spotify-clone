@@ -9,6 +9,7 @@ import Library from "../../Library";
 import SidebarItem from "./SidebarItem";
 import { Song } from "../../../../types";
 import { usePathname } from "next/navigation";
+import usePlayer from "@/hooks/usePlayer";
 
 export type SidebarProps = {
   songs: Song[];
