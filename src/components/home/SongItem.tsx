@@ -9,13 +9,19 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 export type SongItemProps = {
   song: Song;
-  onClick: () => void;
+  onClick: (id: string) => void;
 };
 
-const SongItem: React.FunctionComponent<SongItemProps> = ({ song }) => {
+const SongItem: React.FunctionComponent<SongItemProps> = ({
+  song,
+  onClick,
+}) => {
   const publicUrl = useLoadImage(song);
   return (
-    <div className="relative group flex flex-col items-center rounded-md overflow-hidden gap-x-4 bg-neutral-400/5 cursor-pointer hover:bg-neutral-400/10 transition p-3">
+    <div
+      className="relative group flex flex-col items-center rounded-md overflow-hidden gap-x-4 bg-neutral-400/5 cursor-pointer hover:bg-neutral-400/10 transition p-3"
+      onClick={() => onClick(song.id)}
+    >
       <div className="relative aspect-square w-full h-full rounded-md overflow-hidden">
         <Image
           className="object-cover"
